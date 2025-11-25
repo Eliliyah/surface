@@ -21,6 +21,11 @@ for pkg in go go-tools meson vala make automake cmake extra-cmake-modules rust f
   pacman -S --needed --noconfirm "$pkg"
 done
 
+#install kde desktop enviornment with wayland
+for pkg in plasma kde-applications-meta wayland kwayland; do
+  pacman -S --needed --noconfirm "$pkg"
+done
+
 #Install important packages
 for pkg in mesa a52dec aalib accounts-qml-module accountsservice acl adobe-source-code-pro-fonts adwaita-icon-theme alacritty alpm_octopi_utils alsa-card-profiles alsa-firmware alsa-lib alsa-topology-conf alsa-ucm-conf amd-ucode android-apktool android-ndk android-platform android-sdk android-sdk-build-tools android-sdk-cmdline-tools-latest android-sdk-platform-tools android-tools android-udev acpi acpid; do
   pacman -S --needed --noconfirm "$pkg"
@@ -83,7 +88,7 @@ for pkg in wireless-regdb wireless_tools woff2 wpa_supplicant wpebackend-fdo x26
 done
 
 #Install optional applications
-for pkg in pamac-nosnap dolphin-plugins preload ffmpegthumbs kalarm kamoso kcalc kdegraphics-thumbnailers kdesdk-thumbnailers kfind kmix ksystemlog ktorrent aspell-en libappimage os-prober pacmanlogviewer oxygen ksystemstats kwalletmanager plasma-systemmonitor easyeffects  haskell-emojis discover flameshot teamviewer wine-installer fish fish-autopair gimp libreoffice-fresh discord meld file-roller vivaldi vivaldi-ffmpeg-codecs bitwarden code inkscape clementine btop firefox pam-u2f rclone gparted starship aic94xx-firmware cdrtools debtap exfat-utils masterpdfeditor-free ocs-url oxygen pacdiff-pacman-hook-git; do
+for pkg in brave-bin element-desktop pamac dolphin-plugins preload ffmpegthumbs kalarm kamoso kcalc kdegraphics-thumbnailers kdesdk-thumbnailers kfind kmix ksystemlog ktorrent aspell-en libappimage os-prober pacmanlogviewer oxygen ksystemstats plasma-systemmonitor easyeffects  haskell-emojis discover flameshot teamviewer wine-installer fish fish-autopair gimp libreoffice-fresh discord meld file-roller vivaldi vivaldi-ffmpeg-codecs bitwarden code inkscape clementine btop firefox pam-u2f rclone gparted starship aic94xx-firmware cdrtools debtap exfat-utils masterpdfeditor-free ocs-url oxygen pacdiff-pacman-hook-git; do
   pacman -S --needed --noconfirm "$pkg"
 done
 
