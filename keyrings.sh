@@ -29,14 +29,20 @@ pacman-key --populate
 pacman-key -u
 nano /etc/pacman.conf
 
-#Install blackarch
-#cd/tmp
-#curl -O https://blackarch.org/strap.sh
-#chmod +x strap.sh
-#./strap.sh
+#install surface kernel
+curl -s https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc \
+    | sudo pacman-key --add -
+pacman-key --finger 56C464BAAC421453
+pacman-key --lsign-key 56C464BAAC421453
+echo "
+[linux-surface]
+Server = https://pkg.surfacelinux.com/arch/">> /etc/pacman.conf
 
 #Update mirrors and keys
 reflector
 pacman-key --populate
 pacman-key -u 
 pacman -Syu
+
+pacman -S linux-surface linux-surface-headers iptsd
+pacman -S linux-firmware-marvell
