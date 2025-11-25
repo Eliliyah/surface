@@ -58,18 +58,6 @@ pacman -S --needed upower --noconfirm
 systemctl enable upower
 confirm "Did upower install?"
 
-#Install NVIDIA drivers
-pacman -S nvidia-prime nvidia-settings nvidia-utils libva-nvidia-driver linux-firmware-nvidia opencl-nvidia egl-gbm egl-wayland nvidia-lts
-confirm "Did nvidia install?"
-
-#Install asus drivers
-pacman -S rog-control-center asus-fan-control 
-confirm "Did asus install?"
-
-#Enable system services
-systemctl enable nvidia-powerd
-confirm "Did nvidia-powerd install?"
-
 #install aura and install asusctl
 pacman -S aura
 aura -A asusctl
@@ -87,6 +75,9 @@ echo "Storage=persistent" >> /etc/systemd/journald.conf
 #Enable SysRq key
 echo "kernel.sysrq = 1" >> /etc/sysctl.d/99-sysctl.conf
 
+#enable late microcode updates
+echo 1 > /sys/devices/system/cpu/microcode/reload
+
 #Configure zram
 pacman -S zram-generator --noconfirm
 cp /archinstall/zram-generator.conf /etc/systemd/zram-generator.conf
@@ -102,7 +93,7 @@ confirm "All good?"
 sed -i '7,52 s/^/#/' /etc/mkinitcpio.conf
 echo "
 COMPRESSION="zstd"
-MODULES=(crc32c nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+MODULES=(crc32c)
 BINARIES=()
 FILES=()
 HOOKS=(base udev autodetect microcode kms modconf block keyboard keymap consolefont filesystems) " >> /etc/mkinitcpio.conf
@@ -111,4 +102,5 @@ HOOKS=(base udev autodetect microcode kms modconf block keyboard keymap consolef
 mkinitcpio -p linux
 mkinitcpio -p linux-zen
 mkinitcpio -p linux-lts
+mkinitcpio -p linux-surface
 confirm "Did the initramfs generate successfully?"
