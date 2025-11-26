@@ -59,8 +59,8 @@ systemctl enable upower
 confirm "Did upower install?"
 
 #install aura and install asusctl
-pacman -S aura
-aura -A asusctl
+pacman -S aura --noconfirm
+aura - A beautyline
 confirm "Did asusctl install?"
 
 for pkg in konsole xterm fish vivaldi iwd plasma plasma-meta discord aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6; do
