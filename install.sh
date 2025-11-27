@@ -32,9 +32,9 @@ confirm "Was the base system installed?"
 
 genfstab -p -U /mnt >> /mnt/etc/fstab
 
-echo "git clone https://github.com/Eliliyah/archinstall
-chmod +x /archinstall/arch-chroot.sh
-cd archinstall
+echo "git clone https://github.com/Eliliyah/surface
+chmod +x /surface/arch-chroot.sh
+cd surface
 ./arch-chroot.sh" >> /mnt/script.sh
 chmod +x /mnt/script.sh
 arch-chroot /mnt ./script.sh
