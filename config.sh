@@ -108,7 +108,6 @@ plasma-apply-wallpaperimage /home/ellie/Pictures/arch_pink_background.png
 
 #Generate the initramfs
 mkinitcpio -p linux
-mkinitcpio -p linux-zen
 mkinitcpio -p linux-lts
 mkinitcpio -p linux-surface
 confirm "Did the initramfs generate successfully?"
