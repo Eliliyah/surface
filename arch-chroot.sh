@@ -29,7 +29,8 @@ chmod +x keyrings.sh
 confirm "Did the keyrings install and mirrors update successfully?"
 
 chmod +x packages.sh
-./packages.sh
+#./packages.sh
+pacman -S --needed - < pkglist.txt
 confirm "Did all packages install successfully?"
 
 chmod +x config.sh
@@ -42,7 +43,7 @@ confirm "Was the bootloader installed properly?"
 
 mv /archinstall/files /home/ellie
 
-chmod +x blackarch.sh
-./blackarch.sh
-nano /etc/pacman.conf
-confirm "Was Blackarch installed successfully?"
+#chmod +x blackarch.sh
+#./blackarch.sh
+#nano /etc/pacman.conf
+#confirm "Was Blackarch installed successfully?"
