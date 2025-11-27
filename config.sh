@@ -81,6 +81,7 @@ echo "Storage=persistent" >> /etc/systemd/journald.conf
 echo "kernel.sysrq = 1" >> /etc/sysctl.d/99-sysctl.conf
 
 #enable late microcode updates
+pacman -S intel-ucode --needed --noconfirm
 echo 1 > /sys/devices/system/cpu/microcode/reload
 
 #configure rclone
