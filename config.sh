@@ -61,9 +61,9 @@ confirm "Did upower install?"
 #install aura and install asusctl
 pacman -S aura --noconfirm
 aura - A beautyline
-confirm "Did asusctl install?"
+confirm "Did aura install?"
 
-for pkg in konsole xterm fish vivaldi iwd plasma plasma-meta discord aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6; do
+for pkg in konsole fish vivaldi iwd plasma plasma-meta discord aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6; do
   pacman -S --needed --noconfirm "$pkg"
 done
 
@@ -88,15 +88,6 @@ echo "[Theme]
 Current=archlinux-simplyblack">> /etc/sddm.conf
 nano /etc/sddm.conf
 confirm "All good?"
-
-#Configure initramfs for nvidia
-sed -i '7,52 s/^/#/' /etc/mkinitcpio.conf
-echo "
-COMPRESSION="zstd"
-MODULES=(crc32c)
-BINARIES=()
-FILES=()
-HOOKS=(base udev autodetect microcode kms modconf block keyboard keymap consolefont filesystems) " >> /etc/mkinitcpio.conf
 
 #Generate the initramfs
 mkinitcpio -p linux
