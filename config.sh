@@ -63,7 +63,7 @@ pacman -S aura --noconfirm
 aura - A beautyline
 confirm "Did aura install?"
 
-for pkg in konsole fish vivaldi iwd plasma plasma-meta discord aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6; do
+for pkg in brave-bin konsole fish vivaldi iwd plasma plasma-meta discord aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6; do
   pacman -S --needed --noconfirm "$pkg"
 done
 
@@ -101,6 +101,10 @@ echo "[Theme]
 Current=archlinux-simplyblack">> /etc/sddm.conf
 nano /etc/sddm.conf
 confirm "All good?"
+
+#set wallpaper
+cp /surface/files/arch_pink_background.png /home/ellie/Pictures
+plasma-apply-wallpaperimage /home/ellie/Pictures/arch_pink_background.png
 
 #Generate the initramfs
 mkinitcpio -p linux
