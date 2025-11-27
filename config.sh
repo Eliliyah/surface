@@ -58,13 +58,18 @@ pacman -S --needed upower --noconfirm
 systemctl enable upower
 confirm "Did upower install?"
 
-#install aura and install asusctl
+#install aura
 pacman -S aura --noconfirm
 aura - A beautyline
 confirm "Did aura install?"
 
 for pkg in konsole fish vivaldi iwd plasma plasma-meta discord aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6; do
   pacman -S --needed --noconfirm "$pkg"
+done
+
+#Install AUR packages
+for pkg in chromium-extension-plasma-integration hunspell-en-med-glut-git debtap masterpdfeditor-free appimagelauncher hunspell-en-med-glut-git libreoffice-extension-cleandoc ocs-url onevpl-intel-gpu pacdiff-pacman-hook-git wd719x-firmware aic94xx-firmware; do
+  aura -A --noconfirm "$pkg"
 done
 
 confirm "Did everything install?"
@@ -78,9 +83,17 @@ echo "kernel.sysrq = 1" >> /etc/sysctl.d/99-sysctl.conf
 #enable late microcode updates
 echo 1 > /sys/devices/system/cpu/microcode/reload
 
+#configure rclone
+mkdir /home/ellie/proton
+pacman -S rclone --needed --noconfirm
+rclone config
+cp /surface/rclone.service /etc/systemd/system/rclone.service
+systemctl enable rclone
+confirm "Did rclone configure successfully?"
+
 #Configure zram
 pacman -S zram-generator --noconfirm
-cp /archinstall/zram-generator.conf /etc/systemd/zram-generator.conf
+cp /surface/zram-generator.conf /etc/systemd/zram-generator.conf
 
 #Configure sddm
 aura -A archlinux-themes-sddm --noconfirm
