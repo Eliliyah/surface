@@ -41,7 +41,7 @@ chmod +x grub.sh
 ./grub.sh
 confirm "Was the bootloader installed properly?"
 
-mv /archinstall/files /home/ellie
+mv /surface/files /home/ellie
 
 #chmod +x blackarch.sh
 #./blackarch.sh
