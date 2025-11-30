@@ -103,6 +103,11 @@ Current=archlinux-simplyblack">> /etc/sddm.conf
 vim /etc/sddm.conf
 confirm "All good?"
 
+#set theme
+chmod +x theme.sh
+./theme.sh
+confirm "Did EllieOS theme apply?"
+
 #sync files
 chmod +x files.sh
 ./files.sh
