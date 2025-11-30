@@ -35,7 +35,5 @@ rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
 rsync -av /surface/files/ellieossticker_small.png /home/ellie/Pictures
 rsync -av /surface/files/home_files.zip/ /home/ellie/Downloads
 
-confirm "Did everything sync?"
-
 
 
