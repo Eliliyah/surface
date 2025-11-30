@@ -34,6 +34,8 @@ rsync -av /surface/files/env.fish /home/ellie/.local/bin/
 rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
 rsync -av /surface/files/ellieossticker_small.png /home/ellie/Pictures
 rsync -av /surface/files/home_files.zip/ /home/ellie/Downloads
+mkdir /home/ellie/surface/
+rsync -av /surface/ /home/ellie/surface/
 
 
 
