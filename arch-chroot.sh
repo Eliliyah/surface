@@ -23,6 +23,7 @@ confirm "Were the locales set and user created successfully?"
 pacman-key --init
 pacman-key --update
 pacman -Syu
+pacman -S vim rsync
 
 chmod +x keyrings.sh
 ./keyrings.sh
@@ -40,10 +41,5 @@ confirm "Was the system configured successfully?"
 chmod +x grub.sh
 ./grub.sh
 confirm "Was the bootloader installed properly?"
-
-mv /surface/files /home/ellie
-
-#chmod +x blackarch.sh
-#./blackarch.sh
-#nano /etc/pacman.conf
-#confirm "Was Blackarch installed successfully?"
+confirm "Exit the chroot and reboot to EllieOS?"
+exit
