@@ -104,6 +104,9 @@ rsync -av /surface/files/HotPinkAnenome.colors /usr/share/color-schemes/
 rsync -av /surface/files/HotPinkAnenome.colors /home/ellie/.local/share/color-schemes/
 plasma-apply-colorscheme HotPinkAnenome
 plasma-apply-cursortheme Oxygen_Magenta
+rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
+plasma-apply-wallpaperimage /home/ellie/Pictures/arch_pink_background.png
+confirm "Was EllieOS Theme applied?"
 
 #Configure sddm
 aura -A archlinux-themes-sddm --noconfirm
@@ -111,10 +114,6 @@ echo "[Theme]
 Current=archlinux-simplyblack">> /etc/sddm.conf
 vim /etc/sddm.conf
 confirm "All good?"
-
-#set wallpaper
-rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
-plasma-apply-wallpaperimage /home/ellie/Pictures/arch_pink_background.png
 
 #sync files
 chmod +x files.sh
