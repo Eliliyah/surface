@@ -2,8 +2,6 @@ acpid
 alsa-tools
 android-tools
 android-udev
-appimagelauncher
-archlinux-themes-sddm
 ark
 aura
 base
@@ -17,7 +15,6 @@ cargo-binstall
 chaotic-keyring
 chaotic-mirrorlist
 cheese
-chromium-extension-plasma-integration
 discord
 discover
 dolphin
@@ -59,12 +56,10 @@ game-devices-udev
 gcab
 gcr
 gimp
-gimp-plugin-gimp3-tools
 git
 grub-btrfs
 gthumb
 gurk
-hunspell-en-med-glut-git
 intel-ucode
 iwd
 kcolorchooser
@@ -81,7 +76,6 @@ ksshaskpass
 kwallet-pam
 kwin-x11
 kwrited
-libreoffice-extension-cleandoc
 libreoffice-fresh
 linux
 linux-atm
@@ -142,7 +136,6 @@ reflector
 sddm
 sddm-kcm
 spectacle
-stacer-bin
 starship
 strawberry
 switcheroo-control
