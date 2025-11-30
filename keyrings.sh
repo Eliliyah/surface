@@ -27,7 +27,6 @@ echo "
 Include = /etc/pacman.d/chaotic-mirrorlist">> /etc/pacman.conf
 pacman-key --populate
 pacman-key -u
-nano /etc/pacman.conf
 
 #install surface kernel
 curl -s https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc \
