@@ -20,9 +20,11 @@ example-function() {
 pacman -S --needed beautyline oxygen --noconfirm
 plasma-apply-lookandfeel -a org.kde.oxygen.desktop
 /usr/lib/plasma-changeicons beautyline
+mkdir /usr/share/color-schemes/
 rsync -av /surface/files/HotPinkAnenome.colors /usr/share/color-schemes/
+mkdir /home/ellie/.local/share/color-schemes/
 rsync -av /surface/files/HotPinkAnenome.colors /home/ellie/.local/share/color-schemes/
 plasma-apply-colorscheme HotPinkAnenome
-plasma-apply-cursortheme Oxygen_Magenta
+plasma-apply-cursortheme Oxygen_Black
 rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
 plasma-apply-wallpaperimage /home/ellie/Pictures/arch_pink_background.png
