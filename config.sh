@@ -96,6 +96,11 @@ confirm "Did rclone configure successfully?"
 pacman -S zram-generator --noconfirm
 rsync -av /surface/zram-generator.conf /etc/systemd/zram-generator.conf
 
+#set global theme and icons
+pacman -S --needed beautyline 
+plasma-apply-lookandfeel -a org.kde.oxygen.desktop
+/usr/lib/plasma-changeicons beautyline
+
 #Configure sddm
 aura -A archlinux-themes-sddm --noconfirm
 echo "[Theme]
