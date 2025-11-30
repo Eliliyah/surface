@@ -34,8 +34,6 @@ confirm "Was the base system installed?"
 
 genfstab -p -U /mnt >> /mnt/etc/fstab
 
-rsync -av /surface/ /mnt/surface/
-
 arch-chroot /mnt
 
 
