@@ -82,7 +82,6 @@ echo "kernel.sysrq = 1" >> /etc/sysctl.d/99-sysctl.conf
 
 #enable late microcode updates
 pacman -S --needed intel-ucode --noconfirm
-echo 1 > /sys/devices/system/cpu/microcode/reload
 
 #configure rclone
 mkdir /home/ellie/proton
@@ -102,11 +101,6 @@ echo "[Theme]
 Current=archlinux-simplyblack">> /etc/sddm.conf
 vim /etc/sddm.conf
 confirm "All good?"
-
-#set theme
-chmod +x theme.sh
-./theme.sh
-confirm "Did EllieOS theme apply?"
 
 #sync files
 chmod +x files.sh
