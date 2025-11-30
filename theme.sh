@@ -23,4 +23,3 @@ rsync -av /surface/files/HotPinkAnemone.colors /usr/share/color-schemes/
 mkdir /home/ellie/.local/share/color-schemes/
 rsync -av /surface/files/HotPinkAnemone.colors /home/ellie/.local/share/color-schemes/
 rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
-plasma-apply-wallpaperimage /home/ellie/Pictures/arch_pink_background.png
