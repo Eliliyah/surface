@@ -68,7 +68,7 @@ for pkg in xf86-input-wacom rsync vim brave-bin konsole fish vivaldi iwd plasma 
 done
 
 #Install AUR packages
-for pkg in chromium-extension-plasma-integration hunspell-en-med-glut-git debtap masterpdfeditor-free appimagelauncher hunspell-en-med-glut-git libreoffice-extension-cleandoc ocs-url onevpl-intel-gpu pacdiff-pacman-hook-git wd719x-firmware aic94xx-firmware; do
+for pkg in oxygen-cursors-extra chromium-extension-plasma-integration hunspell-en-med-glut-git debtap masterpdfeditor-free appimagelauncher hunspell-en-med-glut-git libreoffice-extension-cleandoc ocs-url onevpl-intel-gpu pacdiff-pacman-hook-git wd719x-firmware aic94xx-firmware; do
   aura -A --noconfirm "$pkg"
 done
 
@@ -96,10 +96,14 @@ confirm "Did rclone configure successfully?"
 pacman -S zram-generator --noconfirm
 rsync -av /surface/zram-generator.conf /etc/systemd/zram-generator.conf
 
-#set global theme and icons
-pacman -S --needed beautyline 
+#set theme elements
+pacman -S --needed beautyline oxygen --noconfirm
 plasma-apply-lookandfeel -a org.kde.oxygen.desktop
 /usr/lib/plasma-changeicons beautyline
+rsync -av /surface/files/HotPinkAnenome.colors /usr/share/color-schemes/
+rsync -av /surface/files/HotPinkAnenome.colors /home/ellie/.local/share/color-schemes/
+plasma-apply-colorscheme HotPinkAnenome
+plasma-apply-cursortheme Oxygen_Magenta
 
 #Configure sddm
 aura -A archlinux-themes-sddm --noconfirm
