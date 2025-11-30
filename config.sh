@@ -27,7 +27,7 @@ confirm "Did the time set correctly?"
 
 #install system services
 pacman -S --needed networkmanager --noconfirm
-systemctl enable networkmanager
+systemctl enable NetworkManager
 confirm "Did networkmanager install?"
 
 pacman -S --needed sddm --noconfirm
