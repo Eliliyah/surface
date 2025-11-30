@@ -63,7 +63,7 @@ pacman -S aura --noconfirm
 aura - A beautyline
 confirm "Did aura install?"
 
-for pkg in xf86-input-wacom brave-bin konsole fish vivaldi iwd plasma plasma-meta discord aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6; do
+for pkg in xf86-input-wacom rsync vim brave-bin konsole fish vivaldi iwd plasma plasma-meta discord aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6; do
   pacman -S --needed --noconfirm "$pkg"
 done
 
@@ -86,26 +86,31 @@ echo 1 > /sys/devices/system/cpu/microcode/reload
 
 #configure rclone
 mkdir /home/ellie/proton
-pacman -S --needed rclone --noconfirm
+pacman -S --needed rclone rsync --noconfirm
 rclone config
-cp /surface/rclone.service /etc/systemd/system/rclone.service
+rsync -av /surface/rclone.service /etc/systemd/system/rclone.service
 systemctl enable rclone
 confirm "Did rclone configure successfully?"
 
 #Configure zram
 pacman -S zram-generator --noconfirm
-cp /surface/zram-generator.conf /etc/systemd/zram-generator.conf
+rsync -av /surface/zram-generator.conf /etc/systemd/zram-generator.conf
 
 #Configure sddm
 aura -A archlinux-themes-sddm --noconfirm
 echo "[Theme]
 Current=archlinux-simplyblack">> /etc/sddm.conf
-nano /etc/sddm.conf
+vim /etc/sddm.conf
 confirm "All good?"
 
 #set wallpaper
-cp /surface/files/arch_pink_background.png /home/ellie/Pictures
+rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
 plasma-apply-wallpaperimage /home/ellie/Pictures/arch_pink_background.png
+
+#sync files
+chmod +x files.sh
+./files.sh
+confirm "Did home files sync?"
 
 #Generate the initramfs
 mkinitcpio -p linux
