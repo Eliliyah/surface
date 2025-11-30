@@ -31,6 +31,7 @@ mkdir /home/ellie/.config/fish/conf.d/
 rsync -av /surface/files/uv.env.fish /home/ellie/.config/fish/conf.d/uv.env.fish
 mkdir /home/ellie/.local/bin
 rsync -av /surface/files/env.fish /home/ellie/.local/bin/
+mkdir /home/ellie/Pictures
 rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
 rsync -av /surface/files/ellieossticker_small.png /home/ellie/Pictures
 rsync -av /surface/files/home_files.zip/ /home/ellie/Downloads
