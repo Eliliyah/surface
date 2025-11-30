@@ -96,18 +96,6 @@ confirm "Did rclone configure successfully?"
 pacman -S zram-generator --noconfirm
 rsync -av /surface/zram-generator.conf /etc/systemd/zram-generator.conf
 
-#set theme elements
-pacman -S --needed beautyline oxygen --noconfirm
-plasma-apply-lookandfeel -a org.kde.oxygen.desktop
-/usr/lib/plasma-changeicons beautyline
-rsync -av /surface/files/HotPinkAnenome.colors /usr/share/color-schemes/
-rsync -av /surface/files/HotPinkAnenome.colors /home/ellie/.local/share/color-schemes/
-plasma-apply-colorscheme HotPinkAnenome
-plasma-apply-cursortheme Oxygen_Magenta
-rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
-plasma-apply-wallpaperimage /home/ellie/Pictures/arch_pink_background.png
-confirm "Was EllieOS Theme applied?"
-
 #Configure sddm
 aura -A archlinux-themes-sddm --noconfirm
 echo "[Theme]
