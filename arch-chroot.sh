@@ -23,7 +23,7 @@ confirm "Were the locales set and user created successfully?"
 pacman-key --init
 pacman-key --update
 pacman -Syu
-pacman -S vim rsync
+pacman -S --needed vim rsync --noconfirm
 
 chmod +x keyrings.sh
 ./keyrings.sh
