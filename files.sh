@@ -34,10 +34,7 @@ rsync -av /surface/files/env.fish /home/ellie/.local/bin/
 rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
 rsync -av /surface/files/ellieossticker_small.png /home/ellie/Pictures
 rsync -av /surface/files/home_files.zip/ /home/ellie/Downloads
-rsync -av /surface/files/ellie.profile /home/ellie/.local/share/konsole
-rsync -av /surface/files/RedOnBlack.colorscheme /home/ellie/.local/share/konsole
 mkdir /home/ellie/surface/
 rsync -av /surface/ /home/ellie/surface/
-
-
-
+rsync -av /surface/theme.sh /home/ellie.theme.sh
+chmod +x /home/ellie/theme.sh
