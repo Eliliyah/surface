@@ -43,5 +43,5 @@ pacman-key --populate
 pacman-key -u 
 pacman -Syu
 
-pacman -S linux-surface linux-surface-headers iptsd --no-confirm
-pacman -S linux-firmware-marvell --no-confirm
+pacman -S linux-surface linux-surface-headers iptsd --noconfirm
+pacman -S linux-firmware-marvell --noconfirm
