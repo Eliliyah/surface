@@ -24,8 +24,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 #set kernel parameters
 sed -i '5,6 s/^/#/' /etc/default/grub
 echo "GRUB_DISTRIBUTOR="EllieOS"
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 nvidia_drm.modeset=1"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3"
 GRUB_THEME="/usr/share/grub/themes/EllieOS/theme.txt"">> /etc/default/grub
-rsync -av /surface/EllieOS /usr/share/grub/themes
+mv /surface/EllieOS /usr/share/grub/themes
 grub-mkconfig -o /boot/grub/grub.cfg
-confirm "Did the bootloader install?"
