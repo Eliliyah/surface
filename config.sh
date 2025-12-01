@@ -109,10 +109,8 @@ confirm "Did home files sync?"
 
 #set theme elements
 pacman -S --needed beautyline oxygen --noconfirm
-mkdir /usr/share/color-schemes/
-rsync -av /surface/files/HotPinkAnemone.colors /usr/share/color-schemes/
-mkdir /home/ellie/.local/share/color-schemes/
 rsync -av /surface/files/HotPinkAnemone.colors /home/ellie/.local/share/color-schemes/
+mkdir /home/ellie/Pictures
 rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
 
 #Generate the initramfs
