@@ -37,5 +37,4 @@ rsync -av /surface/files/ellieossticker_small.png /home/ellie/Pictures
 rsync -av /surface/files/home_files.zip/ /home/ellie/Downloads
 mkdir /home/ellie/surface/
 rsync -av /surface/ /home/ellie/surface/
-rsync -av /surface/theme.sh /home/ellie/theme.sh
-chmod +x /home/ellie/theme.sh
+chown -R ellie:ellie /home/ellie
