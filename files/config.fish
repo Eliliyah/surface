@@ -46,4 +46,7 @@ if status --is-interactive && type -q fastfetch
    fastfetch
 end
 
+function last_history_item; echo $history[1]; end 
+abbr -a !! --position anywhere --function last_history_item
+
 
