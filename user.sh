@@ -35,7 +35,7 @@ LC_NUMERIC=en_US.UTF-8
 LANGUAGE=en_US.UTF-8">> /etc/locale.conf
 echo "KEYMAP=us
 FONT=Lat2-Terminus16">> /etc/vconsole.conf
-echo "angel">> /etc/hostname
+echo "ballerina">> /etc/hostname
 
 #Set the root password
 passwd
