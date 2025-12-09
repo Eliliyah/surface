@@ -20,4 +20,3 @@ echo "[Theme]
 Current=archlinux-simplyblack">> /etc/sddm.conf
 sudo nano /etc/sddm.conf
 confirm "All good?"
-reboot
