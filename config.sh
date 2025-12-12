@@ -36,7 +36,7 @@ confirm "Did sddm install?"
 
 pacman -S --needed lm_sensors --noconfirm
 systemctl enable lm_sensors
-confirm "Did lmsensors install?"lm_sensors acpid power-profiles-daemon  preload upower
+confirm "Did lmsensors install?"
 
 pacman -S --needed acpid --noconfirm
 systemctl enable acpid
@@ -46,7 +46,7 @@ pacman -S --needed power-profiles-daemon --noconfirm
 systemctl enable power-profiles-daemon
 confirm "Did power-profiles-daemon install?"
 
-pacman -S --needed bluez bluez-utils pulseaudio-bluetooth blueman --noconfirm
+pacman -S --needed bluez bluez-utils blueman --noconfirm
 systemctl enable bluetooth
 confirm "Did bluetooth install?"
 
