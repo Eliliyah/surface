@@ -68,7 +68,7 @@ for pkg in xf86-input-wacom zellij yazi rsync vim brave-bin konsole fish vivaldi
 done
 
 #Install AUR packages
-for pkg in oxygen-cursors-extra chromium-extension-plasma-integration hunspell-en-med-glut-git debtap masterpdfeditor-free appimagelauncher hunspell-en-med-glut-git libreoffice-extension-cleandoc ocs-url onevpl-intel-gpu pacdiff-pacman-hook-git wd719x-firmware aic94xx-firmware snap-pac-grub; do
+for pkg in feishin oxygen-cursors-extra chromium-extension-plasma-integration hunspell-en-med-glut-git debtap masterpdfeditor-free appimagelauncher hunspell-en-med-glut-git libreoffice-extension-cleandoc ocs-url onevpl-intel-gpu pacdiff-pacman-hook-git wd719x-firmware aic94xx-firmware snap-pac-grub; do
   aura -A --noconfirm "$pkg"
 done
 
