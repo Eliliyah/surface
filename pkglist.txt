@@ -11,11 +11,10 @@ brave-bin
 breeze-gtk
 breeze-plymouth
 btop
+btrfs-assistant
 cargo-binstall
 chaotic-keyring
 chaotic-mirrorlist
-cheese
-discord
 discover
 dolphin
 dosbox
