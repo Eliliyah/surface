@@ -83,15 +83,9 @@ linux-firmware
 linux-headers
 linux-lts
 linux-lts-headers
-linux-zen
-linux-zen-headers
 meld
 nano
 networkmanager
-nvidia
-nvidia-settings
-nvidia-utils
-opencl-nvidia
 oxygen
 oxygen-sounds
 pavucontrol
@@ -204,7 +198,9 @@ xorg-xrandr
 xorg-xsetroot
 xsel
 yad
+yazi
 zbar
+zellij
 zip
 zita-convolver
 zoxide
