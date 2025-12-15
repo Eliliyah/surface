@@ -28,5 +28,5 @@ mount -t btrfs -o subvol=@tmp,$o_btrfs LABEL=system /mnt/var/tmp
 mount -t btrfs -o subvol=@cache,$o_btrfs LABEL=system /mnt/var/cache
 swapon /dev/nvme0n1p2
 btrfs quota enable /mnt
-mount /dev/nvme01np1 /mnt/boot
+mount /dev/nvme0n1p1 /mnt/boot
 lsblk
