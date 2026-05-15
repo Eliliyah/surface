@@ -108,15 +108,15 @@ systemctl enable plasmalogin.service
 confirm "Was Plasma-Login enabled?"
 
 #sync files
-#chmod +x files.sh
-#./files.sh
-#confirm "Did home files sync?"
+chmod +x files.sh
+./files.sh
+confirm "Did home files sync?"
 
 #set theme elements
 pacman -S --needed beautyline oxygen --noconfirm
-#rsync -av /surface/files/HotPinkAnemone.colors /home/ellie/.local/share/color-schemes/
-mkdir /home/ellie/Pictures
-rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
+mkdir /home/ellie/.local/share/
+mkdir /home/ellie/.local/share/color-schemes/
+rsync -av /surface/files/HotPinkAnemone.colors /home/ellie/.local/share/color-schemes/HotPinkAnemone.colors
 
 #install flatpak packages
 for pkg in brave discord feishin jellyfin; do
