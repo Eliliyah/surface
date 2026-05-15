@@ -30,9 +30,9 @@ pacman -S --needed networkmanager --noconfirm
 systemctl enable NetworkManager
 confirm "Did networkmanager install?"
 
-pacman -S --needed sddm --noconfirm
-systemctl enable sddm
-confirm "Did sddm install?"
+#pacman -S --needed sddm --noconfirm
+#systemctl enable sddm
+#confirm "Did sddm install?"
 
 pacman -S --needed lm_sensors --noconfirm
 systemctl enable lm_sensors
@@ -46,7 +46,7 @@ pacman -S --needed power-profiles-daemon --noconfirm
 systemctl enable power-profiles-daemon
 confirm "Did power-profiles-daemon install?"
 
-pacman -S --needed bluez bluez-utils blueman --noconfirm
+pacman -S --needed bluez bluez-utils --noconfirm
 systemctl enable bluetooth
 confirm "Did bluetooth install?"
 
@@ -63,12 +63,12 @@ pacman -S aura --noconfirm
 aura - A beautyline
 confirm "Did aura install?"
 
-for pkg in xf86-input-wacom zellij yazi rsync vim konsole fish iwd plasma plasma-meta aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6 snapper; do
+for pkg in xf86-input-wacom zellij yazi yay rsync vim konsole fish iwd plasma aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6 snapper; do
   pacman -S --needed --noconfirm "$pkg"
 done
 
 #Install AUR packages
-for pkg in oxygen-cursors-extra chromium-extension-plasma-integration hunspell-en-med-glut-git debtap masterpdfeditor-free appimagelauncher hunspell-en-med-glut-git libreoffice-extension-cleandoc ocs-url onevpl-intel-gpu pacdiff-pacman-hook-git wd719x-firmware aic94xx-firmware snap-pac-grub; do
+for pkg in oxygen-cursors-extra hunspell-en-med-glut-git debtap masterpdfeditor-free appimagelauncher hunspell-en-med-glut-git libreoffice-extension-cleandoc ocs-url onevpl-intel-gpu pacdiff-pacman-hook-git wd719x-firmware aic94xx-firmware snap-pac-grub; do
   aura -A --noconfirm "$pkg"
 done
 
@@ -102,6 +102,9 @@ rsync -av /surface/zram-generator.conf /etc/systemd/zram-generator.conf
 #vim /etc/sddm.conf
 #confirm "All good?"
 
+#Install a desktop environment
+pacman -S cinnamon xorg wayland --noconfirm
+
 #configure plasma login
 pacman -S plasma-login-manager plasma-keyboard --noconfirm
 systemctl enable plasmalogin.service
@@ -116,7 +119,7 @@ confirm "Did home files sync?"
 pacman -S --needed beautyline oxygen --noconfirm
 mkdir /home/ellie/.local/share/
 mkdir /home/ellie/.local/share/color-schemes/
-rsync -av /surface/files/HotPinkAnemone.colors /home/ellie/.local/share/color-schemes/HotPinkAnemone.colors
+rsync -av /home/ellie/surface/files/HotPinkAnemone.colors /home/ellie/.local/share/color-schemes/HotPinkAnemone.colors
 
 #install flatpak packages
 for pkg in brave discord feishin jellyfin; do
