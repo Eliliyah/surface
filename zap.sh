@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 #FUNCTIONS GO HERE
 
@@ -25,11 +25,18 @@ timedatectl set-ntp true
 timedatectl status
 
 #Format the drive
-sgdisk --zap-all /dev/nvme0n1
+lsblk
+read -p "Which device will you be installing to?" dev
+confirm "Is "$dev" correct?"
+sgdisk --zap-all /dev/"$dev"
+
+read -p "How large would you like your swap partition to be?" swapsize
+confirm "Is "$swapsize" correct?"
+sgdisk --zap-all /dev/"$dev"
 
 sgdisk --clear \
-         --new=1:0:+2048MiB --typecode=1:ef00 \
-         --new=2:0:+12288MiB   --typecode=2:8200 \
+         --new=1:0:+1024MiB --typecode=1:ef00 \
+         --new=2:0:+"$swapsize"MiB   --typecode=2:8200 \
          --new=3:0:0       --typecode=3:8300 \
-           /dev/nvme0n1
+          /dev/"$dev"
 
