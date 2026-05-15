@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 #FUNCTIONS GO HERE
 
@@ -30,7 +30,6 @@ chmod +x keyrings.sh
 confirm "Did the keyrings install and mirrors update successfully?"
 
 chmod +x packages.sh
-#./packages.sh
 pacman -S --needed - < pkglist.txt
 confirm "Did all packages install successfully?"
 
@@ -41,5 +40,4 @@ confirm "Was the system configured successfully?"
 chmod +x grub.sh
 ./grub.sh
 confirm "Was the bootloader installed properly?"
-confirm "Exit the chroot and reboot to EllieOS?"
-exit
+"Please exit the chroot and reboot."
