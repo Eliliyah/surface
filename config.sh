@@ -63,7 +63,7 @@ pacman -S aura --noconfirm
 aura - A beautyline
 confirm "Did aura install?"
 
-for pkg in xf86-input-wacom zellij yazi rsync vim brave-bin konsole fish vivaldi iwd plasma plasma-meta discord aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6 snapper; do
+for pkg in xf86-input-wacom zellij yazi rsync vim konsole fish iwd plasma plasma-meta aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6 snapper; do
   pacman -S --needed --noconfirm "$pkg"
 done
 
@@ -86,30 +86,35 @@ pacman -S --needed intel-ucode --noconfirm
 #configure rclone
 mkdir /home/ellie/proton
 pacman -S --needed rclone rsync --noconfirm
-rclone config
-rsync -av /surface/rclone.service /etc/systemd/system/rclone.service
-systemctl enable rclone
-confirm "Did rclone configure successfully?"
+#rclone config
+#rsync -av /surface/rclone.service /etc/systemd/system/rclone.service
+#systemctl enable rclone
+#confirm "Did rclone configure successfully?"
 
 #Configure zram
 pacman -S zram-generator --noconfirm
 rsync -av /surface/zram-generator.conf /etc/systemd/zram-generator.conf
 
 #Configure sddm
-aura -A archlinux-themes-sddm --noconfirm
-echo "[Theme]
-Current=archlinux-simplyblack">> /etc/sddm.conf
-vim /etc/sddm.conf
-confirm "All good?"
+#aura -A archlinux-themes-sddm --noconfirm
+#echo "[Theme]
+#Current=archlinux-simplyblack">> /etc/sddm.conf
+#vim /etc/sddm.conf
+#confirm "All good?"
+
+#configure plasma login
+pacman -S plasma-login-manager plasma-keyboard --noconfirm
+systemctl enable plasmalogin.service
+confirm "Was Plasma-Login enabled?"
 
 #sync files
-chmod +x files.sh
-./files.sh
-confirm "Did home files sync?"
+#chmod +x files.sh
+#./files.sh
+#confirm "Did home files sync?"
 
 #set theme elements
 pacman -S --needed beautyline oxygen --noconfirm
-rsync -av /surface/files/HotPinkAnemone.colors /home/ellie/.local/share/color-schemes/
+#rsync -av /surface/files/HotPinkAnemone.colors /home/ellie/.local/share/color-schemes/
 mkdir /home/ellie/Pictures
 rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
 
