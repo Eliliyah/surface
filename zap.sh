@@ -26,17 +26,17 @@ timedatectl status
 
 #Format the drive
 lsblk
-read -p "Which device will you be installing to?" dev
+read -p "Which device will you be installing to? Please specify the full path." dev
 confirm "Is "$dev" correct?"
-sgdisk --zap-all /dev/"$dev"
+sgdisk --zap-all "$dev"
 
 read -p "How large would you like your swap partition to be?" swapsize
 confirm "Is "$swapsize" correct?"
-sgdisk --zap-all /dev/"$dev"
+sgdisk --zap-all "$dev"
 
 sgdisk --clear \
          --new=1:0:+1024MiB --typecode=1:ef00 \
          --new=2:0:+"$swapsize"MiB   --typecode=2:8200 \
          --new=3:0:0       --typecode=3:8300 \
-          /dev/"$dev"
+          "$dev"
 
