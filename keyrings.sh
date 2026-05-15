@@ -28,6 +28,17 @@ Include = /etc/pacman.d/chaotic-mirrorlist">> /etc/pacman.conf
 pacman-key --populate
 pacman-key -u
 
+confirm "Do you want to install the Blackarch keyring?"
+confirm "Really? Do you think you're ever going to need that?"
+
+#Install blackarch
+cd/tmp
+curl -O https://blackarch.org/strap.sh
+chmod +x strap.sh
+./strap.sh
+
+confirm "Did it work?"
+
 #install surface kernel
 curl -s https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc \
     | sudo pacman-key --add -
