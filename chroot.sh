@@ -16,10 +16,16 @@ example-function() {
     echo "$2"
 }
 
-#Choose the drive for installation
+#Choose the drive to repair
 lsblk
-read -p "Which device will you be partitioning?" dev
-confirm "Is "$dev" correct?"
+read -p "What is the name of your first (boot) partition?" boot
+confirm "Is $boot" correct?
+
+read -p "What is the name of your second (swap) partition?" swap
+confirm "Is $swap" correct?
+
+read -p "What is the name of your third (root) partition?" root
+confirm "Is $root" correct?
 
 #Mount the partitions
 o=defaults,x-mount.mkdir
@@ -31,9 +37,7 @@ mount -t btrfs -o subvol=@srv,$o_btrfs LABEL=system /mnt/srv
 mount -t btrfs -o subvol=@log,$o_btrfs LABEL=system /mnt/var/log
 mount -t btrfs -o subvol=@tmp,$o_btrfs LABEL=system /mnt/var/tmp
 mount -t btrfs -o subvol=@cache,$o_btrfs LABEL=system /mnt/var/cache
-mkdir /mnt/boot
-mkdir /mnt/boot/efi
-mount /dev/"$dev"p1 /mnt/boot
-swapon /dev/"$dev"p2
+mount "$boot" /mnt/boot
+swapon "$swap"
 btrfs quota enable /mnt
 lsblk
