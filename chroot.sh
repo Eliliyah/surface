@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#FUNCTIONS GO HERE
-
 confirm() {         
     while true; do
         read -p "${1}" yn
@@ -19,13 +17,10 @@ example-function() {
 #Choose the drive to repair
 lsblk
 read -p "What is the name of your first (boot) partition?" boot
-confirm "Is $boot" correct?
+confirm "Is "$boot" correct?"
 
 read -p "What is the name of your second (swap) partition?" swap
-confirm "Is $swap" correct?
-
-read -p "What is the name of your third (root) partition?" root
-confirm "Is $root" correct?
+confirm "Is "$swap" correct?"
 
 #Mount the partitions
 o=defaults,x-mount.mkdir
