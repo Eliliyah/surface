@@ -16,7 +16,12 @@ example-function() {
     echo "$2"
 }
 
-#Update mirrors
+#Update mirrors and keys
+pacman -Syyu
+pacman -S archlinux-keyring
+reflector
+pacman-key --populate
+pacman-key -u
 
 
 #Generate the initramfs
@@ -30,4 +35,4 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 confirm "Did the bootloader regenerate successfully?"
 
-confirm "type exit and reboot"
+confirm "Type exit and reboot."
