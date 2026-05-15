@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 #FUNCTIONS GO HERE
 
@@ -68,7 +68,7 @@ for pkg in xf86-input-wacom zellij yazi rsync vim konsole fish iwd plasma plasma
 done
 
 #Install AUR packages
-for pkg in feishin oxygen-cursors-extra chromium-extension-plasma-integration hunspell-en-med-glut-git debtap masterpdfeditor-free appimagelauncher hunspell-en-med-glut-git libreoffice-extension-cleandoc ocs-url onevpl-intel-gpu pacdiff-pacman-hook-git wd719x-firmware aic94xx-firmware snap-pac-grub; do
+for pkg in oxygen-cursors-extra chromium-extension-plasma-integration hunspell-en-med-glut-git debtap masterpdfeditor-free appimagelauncher hunspell-en-med-glut-git libreoffice-extension-cleandoc ocs-url onevpl-intel-gpu pacdiff-pacman-hook-git wd719x-firmware aic94xx-firmware snap-pac-grub; do
   aura -A --noconfirm "$pkg"
 done
 
@@ -118,8 +118,13 @@ pacman -S --needed beautyline oxygen --noconfirm
 mkdir /home/ellie/Pictures
 rsync -av /surface/files/arch_pink_background.png /home/ellie/Pictures
 
+#install flatpak packages
+for pkg in brave discord feishin jellyfin; do
+  flatpak install "$pkg"
+done
+
 #Generate the initramfs
-mkinitcpio -p linux
-mkinitcpio -p linux-lts
-mkinitcpio -p linux-surface
+for pkg in linux linux-lts linux-surface; do
+  mkinitcpio -p "$pkg"
+done
 confirm "Did the initramfs generate successfully?"
