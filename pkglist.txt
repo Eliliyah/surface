@@ -67,6 +67,7 @@ intel-ucode
 iptsd
 iwd
 konsole
+krita
 libreoffice-extension-cleandoc
 libreoffice-fresh
 meld
@@ -175,7 +176,6 @@ yad
 yay
 yazi
 youtube-to-mp3
-youtube-to-mp3-debug
 zbar
 zellij
 zip
