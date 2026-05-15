@@ -16,12 +16,18 @@ example-function() {
     echo "$2"
 }
 
-pacman -Sy linux linux-headers
-pacman -S linux-zen linux-zen-headers
-pacman -S linux-lts linux-lts-headers
+#Update mirrors
+
+
+#Generate the initramfs
+for pkg in linux linux-lts linux-surface; do
+  mkinitcpio -p "$pkg"
+done
+confirm "Did the initramfs generate successfully?"
+
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
-confirm "Did it work?"
+confirm "Did the bootloader regenerate successfully?"
 
 confirm "type exit and reboot"
