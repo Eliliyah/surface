@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#FUNCTIONS GO HERE
-
 confirm() {         
     while true; do
         read -p "${1}" yn
@@ -72,6 +70,10 @@ for pkg in oxygen-cursors-extra hunspell-en-med-glut-git debtap masterpdfeditor-
   aura -A --noconfirm "$pkg"
 done
 
+#Install pamac
+for pkg in pamac-aur libpamac-aur archlinux-appstream-data-pamac; do
+ aura -A "$pkg"
+
 confirm "Did everything install?"
 
 #Configure journal
@@ -103,7 +105,7 @@ rsync -av /surface/zram-generator.conf /etc/systemd/zram-generator.conf
 #confirm "All good?"
 
 #Install a desktop environment
-pacman -S cinnamon xorg wayland --noconfirm
+pacman -S --needed cinnamon xorg wayland
 
 #configure plasma login
 pacman -S plasma-login-manager plasma-keyboard --noconfirm
