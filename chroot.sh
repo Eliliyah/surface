@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 #FUNCTIONS GO HERE
 
@@ -16,6 +16,11 @@ example-function() {
     echo "$2"
 }
 
+#Choose the drive for installation
+lsblk
+read -p "Which device will you be partitioning?" dev
+confirm "Is "$dev" correct?"
+
 #Mount the partitions
 o=defaults,x-mount.mkdir
 o_btrfs=$o,defaults,noatime,compress=zstd,commit=120
@@ -26,7 +31,9 @@ mount -t btrfs -o subvol=@srv,$o_btrfs LABEL=system /mnt/srv
 mount -t btrfs -o subvol=@log,$o_btrfs LABEL=system /mnt/var/log
 mount -t btrfs -o subvol=@tmp,$o_btrfs LABEL=system /mnt/var/tmp
 mount -t btrfs -o subvol=@cache,$o_btrfs LABEL=system /mnt/var/cache
-swapon /dev/nvme0n1p2
+mkdir /mnt/boot
+mkdir /mnt/boot/efi
+mount /dev/"$dev"p1 /mnt/boot
+swapon /dev/"$dev"p2
 btrfs quota enable /mnt
-mount /dev/nvme0n1p1 /mnt/boot
 lsblk
