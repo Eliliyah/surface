@@ -58,7 +58,7 @@ useradd -m -G wheel -s /bin/bash/ “$username”
 passwd “$username”
 groupadd fuse
 usermod -a -G fuse “$username”    
-cat /etc/passwd
+cut -d: -f1 /etc/passwd
 confirm "Was the user set correctly?
 
 #add yourself as a user
