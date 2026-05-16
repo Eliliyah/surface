@@ -120,12 +120,12 @@ mkdir /home/ellie/.local/share/color-schemes/
 rsync -av /home/ellie/surface/files/HotPinkAnemone.colors /home/ellie/.local/share/color-schemes/HotPinkAnemone.colors
 
 #install flatpak packages
-for pkg in brave discord feishin jellyfin; do
-  flatpak install "$pkg"
+for flat in brave discord feishin jellyfin; do
+  flatpak install "$flat"
 done
 
 #Generate the initramfs
-for pkg in linux linux-lts linux-surface; do
-  mkinitcpio -p "$pkg"
+for kerns in linux linux-lts linux-surface; do
+  mkinitcpio -p "$kerns"
 done
 confirm "Did the initramfs generate successfully?"
