@@ -23,14 +23,18 @@ timedatectl status
 locale-gen
 confirm "Did the time set correctly?"
 
+#Install a desktop environment
+pacman -S --needed cinnamon xorg wayland
+confirm "Did cinnamon install correctly?"
+
 #install system services
 pacman -S --needed networkmanager --noconfirm
 systemctl enable NetworkManager
 confirm "Did networkmanager install?"
 
-#pacman -S --needed sddm --noconfirm
-#systemctl enable sddm
-#confirm "Did sddm install?"
+pacman -S --needed sddm --noconfirm
+systemctl enable sddm
+confirm "Did sddm install?"
 
 pacman -S --needed lm_sensors --noconfirm
 systemctl enable lm_sensors
@@ -61,7 +65,7 @@ pacman -S aura --noconfirm
 aura - A beautyline
 confirm "Did aura install?"
 
-for pkg in xf86-input-wacom zellij yazi yay rsync vim konsole fish iwd plasma aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6 snapper; do
+for pkg in xf86-input-wacom zellij yazi yay rsync vim konsole fish iwd aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6 snapper; do
   pacman -S --needed --noconfirm "$pkg"
 done
 
@@ -98,19 +102,11 @@ pacman -S zram-generator --noconfirm
 rsync -av /surface/zram-generator.conf /etc/systemd/zram-generator.conf
 
 #Configure sddm
-#aura -A archlinux-themes-sddm --noconfirm
-#echo "[Theme]
-#Current=archlinux-simplyblack">> /etc/sddm.conf
-#vim /etc/sddm.conf
-#confirm "All good?"
-
-#Install a desktop environment
-pacman -S --needed cinnamon xorg wayland
-
-#configure plasma login
-pacman -S plasma-login-manager plasma-keyboard --noconfirm
-systemctl enable plasmalogin.service
-confirm "Was Plasma-Login enabled?"
+aura -A archlinux-themes-sddm --noconfirm
+echo "[Theme]
+Current=archlinux-simplyblack">> /etc/sddm.conf
+cat /etc/sddm.conf
+confirm "All good?"
 
 #sync files
 chmod +x files.sh
