@@ -29,7 +29,7 @@ chmod +x keyrings.sh
 ./keyrings.sh
 confirm "Did the keyrings install and mirrors update successfully?"
 
-chmod +x packages.sh
+#chmod +x packages.sh
 pacman -S --needed - < pkglist.txt
 confirm "Did all packages install successfully?"
 
