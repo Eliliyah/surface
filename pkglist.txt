@@ -2,8 +2,6 @@ acpid
 alsa-tools
 android-tools
 android-udev
-appimagelauncher
-appimagelauncher-debug
 ark
 aura
 base
@@ -62,13 +60,11 @@ gparted
 grub-btrfs
 gthumb
 gurk
-hunspell-en-med-glut-git
 intel-ucode
 iptsd
 iwd
 konsole
 krita
-libreoffice-extension-cleandoc
 libreoffice-fresh
 meld
 mullvad-vpn
@@ -103,7 +99,6 @@ qrencode
 rclone
 reflector
 rsync
-snap-pac-grub
 snapper
 spectacle
 starship
@@ -147,7 +142,6 @@ wine
 wine-mono
 wireguard-tools
 wireless-regdb
-wormhole-rs
 wpa_supplicant
 wpebackend-fdo
 xdg-user-dirs
@@ -162,6 +156,7 @@ xf86-video-ati
 xf86-video-nouveau
 xfsprogs
 xl2tpd
+xorg
 xorg-server
 xorg-xauth
 xorg-xdpyinfo
@@ -175,7 +170,6 @@ xsel
 yad
 yay
 yazi
-youtube-to-mp3
 zbar
 zellij
 zip
